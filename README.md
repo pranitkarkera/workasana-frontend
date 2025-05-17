@@ -1,139 +1,158 @@
-
 # Workasana
-Workasana is a task management and team collaboration tool where users can create projects, assign tasks, set deadlines, and organize work using tags. It supports authentication, dynamic filtering, URL-based queries, and reporting features to track task progress and team productivity.
 
-## Tech Stack
-Frontend: React, Bootstrap, HTML5, CSS, JavaScript
+**Workasana** is a comprehensive task management and team collaboration tool. Users can create projects, assign tasks, set deadlines, organize work using tags, and collaborate efficiently. The platform supports robust authentication, dynamic filtering, URL-based queries, and insightful reporting features to track task progress and team productivity.
+
+---
+
+## 🚀 Tech Stack
+
+### Client
+- **React**
+- **Bootstrap**
+- **HTML5**
+- **CSS**
+- **JavaScript**
+
+### Server
+- **NodeJS**
+- **ExpressJS**
+- **JWT (JSON Web Token)**
+- **Bcrypt**
+- **Mongoose**
+
+---
+
+## 🗂️ Features
+
+### Frontend
+
+#### Authentication
+- [x] **Login Page**
+  - [x] Login form with Email and Password fields
+  - [x] Error message on invalid input
+  - [x] Log In button
+  - [x] Link to Sign Up page
+
+- [x] **Sign Up Page**
+  - [x] Sign Up form with Name, Email, and Password fields
+  - [x] Error message on invalid input
+  - [x] Sign Up button
+  - [x] Link to Log In page
+
+- [x] **Authentication Handling**
+  - [x] Checks for a valid JWT token in `localStorage` to confirm authentication
+  - [x] Redirects unauthenticated users to Login page for protected routes
+  - [x] Logout functionality clears token and redirects to Login
+
+#### Dashboard
+- [x] Search bar to search Projects and Tasks by title or name
+- [x] **My Projects** section: view projects created by the user
+- [x] Filter Projects by status
+- [x] Add new Project button (opens Project form)
+- [x] **My Tasks** section: view tasks assigned to the user
+- [x] Filter Tasks by status
+- [x] Add new Task button (opens Task form)
+
+#### Project Form
+- [x] Project name and Description input fields
+- [x] Add Project button
+
+#### Task Form
+- [x] Task name, Project name, Team name, Owners, Tags, Completion date, Status, and Priority fields
+- [x] Project, Team, Owners, and Tags must be selected from available options
+- [x] Add Task button
+
+#### Projects Page
+- [x] Display all available projects as cards (status, title, description)
+- [x] Filter projects by status
+- [x] Add new Project button (opens Project form)
+
+#### Teams Page
+- [x] Display available teams as cards (Team Name, member initials)
+- [x] Add new Team button (opens Team form)
+
+#### Team Form
+- [x] Team name, description, and members fields
+- [x] Members selected from available options
+- [x] Add Team button
+
+#### Reports Page
+- [x] 3 reports displayed as charts using Chart.js:
+  - [x] Total work left
+  - [x] Total work done in last week
+  - [x] Number of tasks closed/opened
+
+#### Settings Page
+- [x] Welcome message with logged-in user’s name
+- [x] Profile details: user name and email
+
+#### Side Navigation
+- [x] Sidebar navigation menu
+- [x] Logout button (visible when logged in)
+
+#### Project Details Page
+- [x] Show project details
+- [x] Show associated tasks
+- [x] Filter tasks (by priority, newest/oldest, status)
+- [x] Add new Task button
+- [x] Update project status
+
+#### Task Details Page
+- [x] Show task details
+- [x] Update task status
 
-Backend: Node.js, Express.js, JWT, Bcrypt, Mongoose
+---
 
-Database: MongoDB
+### Backend
 
-## Features
-User Authentication:
+#### Models
+- [x] **User**
+- [x] **Project**
+- [x] **Task**
+- [x] **Tag**
+- [x] **Team**
 
-JWT-based authentication
+#### Authentication
+- [x] JWT authentication for protected routes
+- [x] Passwords encrypted with Bcrypt before storage
 
-Secure password encryption with Bcrypt
+#### Form Handling
+- [x] Thorough validation of all user inputs before storing in the database
 
-Redirects for protected routes and logout functionality
+---
 
-Project Management:
+## 📊 Reporting
 
-Create, view, and filter projects by status
+- [x] **Pie Chart:** Total work left
+- [x] **Bar Chart:** Total work done in last week
+- [x] **Bar Chart:** Number of tasks closed vs. opened
 
-Project forms with name and description
+---
 
-Project cards display status, title, and description
+## 📦 Installation
 
-Task Management:
+1. **Clone the repository:**
+    ```
+    git clone https://github.com/your-username/workasana.git
+    cd workasana
+    ```
 
-Create, assign, and filter tasks by status
+2. **Install dependencies:**
+    ```
+    npm install
+    cd frontend
+    npm install
+    ```
 
-Task forms with fields for name, project, team, owners, tags, due date, status, and priority
+3. **Configure environment variables:**
+    - Create a `.env` file in the root and server directories. Add your MongoDB URI and JWT secret.
 
-Dynamic selection for project, team, owners, and tags
+4. **Run the development server:**
+    ```
+    # In one terminal
+    npm run dev
 
-Task details with update status feature
-
-Team Collaboration:
-
-Create and manage teams
-
-Team cards display name and member initials
-
-Add members from available options
-
-Reporting:
-
-Dashboard with search for projects/tasks
-
-Reports page with charts (Pie, Bar) using Chart.js
-
-Visualize total work left, work done last week, and tasks closed/opened
-
-User Settings:
-
-Profile section with name and email
-
-Welcome message for logged-in user
-
-Navigation:
-
-Sidebar navigation menu
-
-Logout button visible when logged in
-
-# Frontend
-## Pages Overview
-Login & Sign Up:
-
-Forms with validation and error messages
-
-Navigation between login and sign up
-
-Dashboard:
-
-Search and filter projects/tasks
-
-View "My Projects" and "My Tasks"
-
-Add new projects and tasks
-
-Projects:
-
-List all projects
-
-Filter and add new projects
-
-Teams:
-
-List and manage teams
-
-Add new teams and select members
-
-Reports:
-
-View work progress and productivity charts
-
-Settings:
-
-View and update profile details
-
-Project Details:
-
-View project info and associated tasks
-
-Filter/sort tasks, add new tasks, update project status
-
-Task Details:
-
-View and update task information
-
-# Backend
-## Models
-User
-
-Project
-
-Task
-
-Tag
-
-Team
-
-## Security & Validation
-All sensitive routes require JWT authentication
-
-Passwords are securely hashed before storage
-
-All user inputs are validated before saving to the database
-
-## Getting Started
-Clone the repository.
-
-Install dependencies in both frontend and backend directories.
-
-Set up environment variables as needed.
-
-Start the backend and frontend servers.
+    # In another terminal, for the client
+    cd frontend
+    npm start
+    ```
